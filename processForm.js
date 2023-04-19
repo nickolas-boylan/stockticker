@@ -1,5 +1,6 @@
 const {MongoClient} = require('mongodb');
 var http = require('http');
+var port = process.env.PORT || 3000;
 var url = require('url');
 
 const uri = "mongodb+srv://boylannickolas3:Tufts2023CS20@cluster0.7ds9gmm.mongodb.net/?retryWrites=true&w=majority";
@@ -20,7 +21,7 @@ async function main() {
             var txt = qobj.textBox;
             res.write("The value is: " + txt);
             res.end();
-        }).listen(8080);
+        }).listen(port);
     } catch (e) {
         console.error(e);
     } finally {
