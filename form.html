@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Search Form</title>
+    <meta charset="utf-8"/>
+    <style type="text/css">
+        #textbox {display: block;}
+    </style>
+</head>
+<body>
+    <h1>
+        Search For a Company's Stock
+    </h1>
+    <form method="GET" action="http://localhost:8080/process">
+        <h2>Choose to search by either the company's tick symbol or the name</h2>
+        <input type="radio" value="symbol" name="symb_or_name"/> Symbol
+        <input type="radio" value="name" name="symb_or_name"/> Name
+        <input type="text" name="textBox" id="textBox">
+        <input type="submit">
+    </form>
+</body>
+</html>
