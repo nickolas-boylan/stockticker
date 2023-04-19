@@ -1,19 +1,14 @@
 {
-"name": "stockTicker",
-"version": "1.0.0",
-"description": "node app ",
-"main": "form.html",
-"scripts": {
-"start": "node processForm.js"
-},
-"repository": {
-"type": "git",
-"url": ""
-},
-"author": "",
-"license": "ISC",
-"bugs": {
-"url": ""
-},
-"homepage": ""
+  "name": "processform",
+  "version": "1.0.0",
+  "description": "Process the html form",
+  "main": "processForm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nickolas Boylan",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^5.3.0"
+  }
 }
