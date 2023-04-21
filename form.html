@@ -7,7 +7,7 @@
     </style>
     <script>
         window.onload=function() {
-            function validate() {
+            window.function = function validate() {
                 box = document.getElementById("textBox");
                 val = box.value;
                 if (value == "") {
@@ -24,7 +24,7 @@
     <h1>
         Search For a Company's Stock
     </h1>
-    <form method="GET" action="/process" onsubmit=validate()>
+    <form method="GET" action="/process" onsubmit="return validate()">
         <h2>Choose to search by either the company's tick symbol or the name</h2>
         <input type="radio" value="symbol" name="symb_or_name" checked=1/> Symbol
         <input type="radio" value="name" name="symb_or_name"/> Name
