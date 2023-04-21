@@ -8,9 +8,8 @@
     <script>
         window.onload=function() {
             window.validate = function validate() {
-                box = document.getElementById("textBox");
-                val = box.value;
-                if (value == "") {
+                val = document.getElementById("textBox").value;
+                if (val == "") {
                     alert("The text field is necessary");
                     return false;
                 } else {
