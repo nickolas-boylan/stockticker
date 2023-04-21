@@ -4,7 +4,7 @@
   "description": "Process the html form",
   "main": "processForm.js",
   "scripts": {
-    "start": "echo node processForm.js",
+    "start": "node processForm.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nickolas Boylan",
