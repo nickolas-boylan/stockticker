@@ -4,6 +4,7 @@ var port = process.env.PORT || 3000;
 var url = require('url');
 var fs = require("fs");
 
+// Get connection information for MongoDB
 const uri = "mongodb+srv://boylannickolas3:Tufts2023CS20@cluster0.7ds9gmm.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
 
@@ -13,6 +14,7 @@ async function main() {
         await http.createServer(async function (req, res) {
             // First check if we are on home page or process page
             if (req.url == "/") {
+                // Home page so read in the html file and write it to the page
                 file = 'form.html';
                 fs.readFile(file, function(err, txt) {
                     res.writeHead(200, {'Content-Type': 'text/html'});
@@ -35,6 +37,7 @@ async function main() {
 
                 // Check if the ticker or name was searched
                 if (choice == "symbol") {
+                    // Symbol was selected so search database for the symbol
                     var result = await companies.find({ticker: company});
 
                     // Make sure at least one result was returned
@@ -42,8 +45,10 @@ async function main() {
                         // No match
                         res.write("<h1>No match was found. Please try again.</h1>");
                     } else {
+                        // At least one match found
                         res.write("<h1>Search results for companies with the stock ticker: " + company + "</h1>");
-
+                        
+                        // Write out each result into a box
                         await result.forEach(function(search) {
                             res.write("<div style='border-bottom: 1px solid #fff;'>");
                             res.write("<h2 style='margin: 10px 0 5px 0;'>" + search["name"] + "</h2>");
@@ -52,16 +57,19 @@ async function main() {
                             res.write("</div>");
                         });
                     }
-                } else { 
+                } else {
+                    // Name was selected
                     var result = await companies.find({name: company});
 
                     // Make sure at least one match was found
                     if (await companies.countDocuments({name: company}) == 0) {
-                        // No match
+                        // No match was found
                         res.write("<h1>No match was found. Please try again.</h1>");
                     } else {
+                        // At least one match was found
                         res.write("<h1>Search results for companies with the name: " + company + "</h1>");
-
+                        
+                        // Write each result in a box
                         await result.forEach(function(search) {
                             res.write("<div style='border-bottom: 1px solid #fff;'>");
                             res.write("<h2 style='margin: 10px 0 5px 0;'>" + search["name"] + "</h2>");
